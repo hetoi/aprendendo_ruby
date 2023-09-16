@@ -1,15 +1,22 @@
 # Cookbook 
+# Definir constantes para melhorar na horas 
+# de alguma adaptaçao ou expansão do projeto: 
 
-# Definir métodos para simplificar funções.
+COMPARTILHAR = 1
+VER_RECEITAS = 2
+SAIR = 3
+
+
+# Definir métodos para simplificar while e códigos.
 
 def bem_vindo()
     puts "Bem-vindo ao cookbook, a rede social de receitas"
 end
 
 def menu()
-    puts "(1) Compartilhar uma receita"
-    puts "(2) Ver receitas"
-    puts "(3) Sair"
+    puts "#{COMPARTILHAR} Compartilhar uma receita"
+    puts "#{VER_RECEITAS} Ver receitas"
+    puts "#{SAIR} Sair"
 
     puts "Escolha uma das opções anteriores: "
     return gets.to_i()
@@ -42,10 +49,10 @@ bem_vindo()
 opcoes = menu()
 receitas = []
 
-while (opcoes != 3) do
-    if opcoes == 1
+while (opcoes != SAIR) do
+    if opcoes == COMPARTILHAR
        receitas << informe_receita()
-    elsif opcoes == 2
+    elsif opcoes == VER_RECEITAS
         imprimir_receitas(receitas)
     else 
         puts 'Opção incorreta'
