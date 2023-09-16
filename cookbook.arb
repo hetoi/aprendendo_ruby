@@ -1,0 +1,58 @@
+# Cookbook 
+
+# Definir métodos para simplificar funções.
+
+def bem_vindo()
+    puts "Bem-vindo ao cookbook, a rede social de receitas"
+end
+
+def menu()
+    puts "(1) Compartilhar uma receita"
+    puts "(2) Ver receitas"
+    puts "(3) Sair"
+
+    puts "Escolha uma das opções anteriores: "
+    return gets.to_i()
+end
+
+def informe_receita()
+    puts
+    puts "Informe qual receita você quer compartilhar: "
+    nome = gets.chomp
+    puts "Informe qual tipo da sua receita: "
+    tipo = gets.chomp
+
+    puts
+    puts "Receita gravada com sucesso!"
+    puts
+    return { nome: nome, tipo: tipo}
+end
+
+def imprimir_receitas(x)
+    puts
+    puts '=========== Receitas cadastradas ==========='
+    x.each do |item|
+    puts "#{item[:nome]} - #{item[:tipo]}"
+    end
+    puts
+end
+
+bem_vindo()
+
+opcoes = menu()
+receitas = []
+
+while (opcoes != 3) do
+    if opcoes == 1
+       receitas << informe_receita()
+    elsif opcoes == 2
+        imprimir_receitas(receitas)
+    else 
+        puts 'Opção incorreta'
+    end
+
+    opcoes = menu()
+
+end
+
+puts "Obrigado por compartilhar suas receitas com nossos usuários. Até mais!"
