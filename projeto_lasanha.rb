@@ -4,26 +4,25 @@
 
 
 class Lasanha
-    MINUTOS_ESPERADOS_PARA_PREPARO = 40
+    EXPECTED_MINUTES_IN_OVEN = 40
     
-    def prep_camadas(camadas)
-        tempo_prep = camadas * 2
-        "Você gastou #{tempo_prep} minutos para preparar a lasanha"
+    def preparation_time_in_minutes(camadas)
+        camadas * 2
     end
 
-    def minutos_faltantes(min_no_forno)
-        faltante = (MINUTOS_ESPERADOS_PARA_PREPARO - min_no_forno)
-        "Faltam apenas #{faltante} minutos para a lasanha estar pronta"
+    def remaining_minutes_in_oven(min_no_forno)
+        EXPECTED_MINUTES_IN_OVEN - min_no_forno
     end
 
-    def total_gasto(camadas, min_no_forno)
-        min_total_gasto = (camadas*2) + min_no_forno
-        "Você está cosinhando essa lasanha faz #{min_total_gasto} minutos"
+    def total_time_in_minutes(camadas, min_no_forno)
+        (camadas*2) + min_no_forno
     end
     
 end
 
+# Testes sobre a classe
 lasanha = Lasanha.new
-lasanha.prep_camadas(4)
-lasanha.minutos_faltantes(10)  
-lasanha.total_gasto(4, 24)
+lasanha.preparation_time_in_minutes(4)
+lasanha.remaining_minutes_in_oven(10)  
+puts lasanha.total_time_in_minutes(4, 24)
+
