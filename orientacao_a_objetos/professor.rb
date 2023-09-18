@@ -5,4 +5,9 @@ class Professor < Funcionario
         super(nome, cdg_funcionario)
         @disciplina = disciplina
     end
+
+    def imprime
+        puts puts "Professor #{@nome} - Código: #{@cdg_funcionario} - Disciplína: #{@disciplina} - Férias: #{@ferias}"
+    end
+        
 end
